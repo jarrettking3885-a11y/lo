@@ -1,0 +1,32 @@
+name: BountySystem
+main: com.smp.bounty.BountyPlugin
+version: 1.0.0
+api-version: 1.21
+author: YourSMP
+description: Full bounty hunting system with kill rewards, compass tracking, and leaderboards.
+softdepend: [Vault]
+
+commands:
+  bounty:
+    description: View your bounty, another player's bounty, or the leaderboard.
+    usage: /bounty [player|top [gui]]
+    permission: bounty.use
+  adminbounty:
+    description: Admin controls for setting/adding bounty values.
+    usage: /adminbounty <set|add> <player> <value>
+    permission: bounty.admin
+  track:
+    description: Receive a compass that tracks a player.
+    usage: /track <player>
+    permission: bounty.track
+
+permissions:
+  bounty.use:
+    description: Allows use of /bounty
+    default: true
+  bounty.track:
+    description: Allows use of /track
+    default: true
+  bounty.admin:
+    description: Allows use of /adminbounty
+    default: op

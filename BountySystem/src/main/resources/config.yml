@@ -1,0 +1,57 @@
+# =========================================
+#  BountySystem Configuration
+# =========================================
+
+bounty:
+  # Bounty added to the killer when they get a kill.
+  kill_gain: 10
+
+  # Extra bounty added per consecutive kill beyond the first in a streak.
+  # e.g. a streak of 3 adds kill_streak_bonus * 2 on top of kill_gain.
+  kill_streak_bonus: 5
+
+  # Multiplier applied to the victim's bounty when converting it into the
+  # killer's coin reward. 1.0 = killer gets exactly the victim's bounty value
+  # in coins, 1.5 = +50% bonus, 0.5 = half, etc.
+  reward_multiplier: 1.0
+
+  # Percentage (0-100) of the victim's bounty they keep after dying.
+  # 0 = full reset on death, 50 = they keep half, 100 = no loss.
+  victim_retain_percent: 0
+
+  # Whether inactive players slowly lose bounty over time.
+  decay_enabled: true
+
+  # Amount of bounty removed per decay tick for inactive players.
+  decay_rate: 1
+
+  # How often (in minutes) the decay task runs.
+  decay_interval_minutes: 30
+
+  # A player must be offline/inactive for at least this many minutes
+  # before decay starts applying to them.
+  decay_inactivity_minutes: 60
+
+tracking:
+  # How often (in ticks, 20 ticks = 1 second) the tracking compass updates.
+  # 40-100 ticks (2-5 seconds) is recommended.
+  update_interval_ticks: 40
+
+  # If false, tracking pauses with a warning whenever the target is in a
+  # different dimension (Overworld/Nether/End) than the tracker.
+  allow_nether_tracking: true
+
+  # How long (in seconds) a tracking session lasts before automatically
+  # expiring. Set to 0 for unlimited (until target/tracker logs off).
+  duration_seconds: 0
+
+storage:
+  # How often (in seconds) all bounty data is auto-saved asynchronously.
+  autosave_interval_seconds: 90
+
+leaderboard:
+  # Enables "/bounty top gui" - an inventory-based leaderboard.
+  gui_enabled: true
+
+messages:
+  prefix: "&6&lBounty &8\u00bb &r"
