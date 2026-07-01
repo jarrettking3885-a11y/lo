@@ -21,15 +21,17 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
+          cache-dependency-path: BountySystem/pom.xml
 
       - name: Build with Maven
+        working-directory: BountySystem
         run: mvn -B clean package
 
       - name: Upload built jar
         uses: actions/upload-artifact@v4
         with:
           name: BountySystem-jar
-          path: target/BountySystem.jar
+          path: BountySystem/target/BountySystem.jar
 
   release:
     needs: build
@@ -47,11 +49,13 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
+          cache-dependency-path: BountySystem/pom.xml
 
       - name: Build with Maven
+        working-directory: BountySystem
         run: mvn -B clean package
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: target/BountySystem.jar
+          files: BountySystem/target/BountySystem.jar
